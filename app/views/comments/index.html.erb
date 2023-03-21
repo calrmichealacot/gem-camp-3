@@ -1,0 +1,32 @@
+<h1>Title: <%= @post.title %></h1>
+
+<%= form_with model: @comment, url: post_comments_path(@post), data: { turbo: false } do |form| %>
+  <% if @comment.errors.any? %>
+    <ul>
+      <% @comment.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
+
+<ul>
+  <% @comments.each do |comment| %>
+    <li><%= comment.content %>(<%= comment.created_at %>)</li>
+  <% end %>
+</ul>
+
+<%= link_to 'Post List', posts_path %>
+
+<td>
+  <!-- ... -->
+  <%= button_to 'Delete', post_path(post), method: :delete %>
+  <%= link_to 'Comments', post_comments_path(post) %>
+  <%= link_to 'New Comment', new_post_comment_path(post) %>
+</td>
+

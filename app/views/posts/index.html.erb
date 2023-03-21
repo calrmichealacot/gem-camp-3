@@ -1,17 +1,28 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>Hello World!</h1>
+<p>Welcome to my page!</p>
+
 <h1>Post List</h1>
  <table>
      <thead>
-     <td>title</td>
+     <td><p class="solid">title</p></td>
      <td>content</td>
      <td>action</td>
    </thead>
-     <% @posts.each do |post| %>
+   <% @posts.each do |post| %>
          <tr>
          <td><%= post.title %></td>
          <td><%= post.content %></td>
-         <td></td>
-       </tr>
-       <% end %>
+
+           <td>
+             <%= link_to 'Show', post_path(post) %>
+             <%= link_to 'Edit', edit_post_path(post) %>
+             <%= button_to 'Delete', post_path(post), method: :delete %>
+           </td>
+         </tr>
+   <% end %>
  </table>
+
+ <%= link_to 'New', new_post_path %>
+
+
+

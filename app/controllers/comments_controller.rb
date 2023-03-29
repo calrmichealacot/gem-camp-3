@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
    end
 
   private
-  # ...
+
 
    def set_comment
        @comment = @post.comments.find(params[:id])

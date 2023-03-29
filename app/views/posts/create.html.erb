@@ -1,0 +1,12 @@
+<h1>New Post</h1>
+ <% if @post.errors.any? %>
+     <ul>
+       <% @post.errors.each do |error| %>
+           <li><%= error.full_message %></li>
+         <% end %>
+     </ul>
+   <% end %>
+<%= form_with model: @post do |form| %>
+
+<%= link_to 'Index', posts_path %>
+<%= end %>

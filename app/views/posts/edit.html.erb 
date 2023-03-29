@@ -1,2 +1,0 @@
-<%= render partial: 'form', locals: { post: @post } %>
-<%= link_to 'Index', posts_path %>

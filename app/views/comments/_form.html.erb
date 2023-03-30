@@ -1,4 +1,4 @@
-<%= form_with model: comment, url: path, data: { turbo: false } do |form| %>
+<%= form_with model: comment, url: url do |form| %>
   <% if comment.errors.any? %>
     <ul>
       <% comment.errors.each do |error| %>
@@ -6,9 +6,9 @@
       <% end %>
     </ul>
   <% end %>
-  <div>
+  <div class="form-group">
     <%= form.label :content %>
-    <%= form.text_field :content %>
+    <%= form.text_field :content, class: 'form-control' %>
   </div>
-  <%= form.submit %>
+  <%= form.submit :submit, class: 'btn btn-danger' %>
 <% end %>
